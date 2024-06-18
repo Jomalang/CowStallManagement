@@ -1,0 +1,4 @@
+.properContainer {
+  display: flex;
+  justify-content: space-between;
+}
