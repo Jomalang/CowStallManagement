@@ -2,6 +2,7 @@ package miniPrj.CowStallManagement.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -10,14 +11,15 @@ import static jakarta.persistence.CascadeType.*;
 import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
+@NoArgsConstructor
 public class Cow {
     @Id
     @GeneratedValue
     @Column(name = "COW_ID")
     private long id; //아이디
 
+    //생성시 아홉자리 검증로직 필요함.
     private int couponId; //이표번호
 
     private LocalDate cowBirthDate; //산차
@@ -34,6 +36,8 @@ public class Cow {
     @OneToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name ="CALF_ID")
     private Calf calf;
+
+    //일대다 주인(메모)
 
 
 

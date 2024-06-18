@@ -28,14 +28,22 @@ public class CowRepository {
     }
     //이표번호 조회
     //정규식으로 뒤의 다섯자리 통해서만으로도 찾을 수 있게 수정해야 함
-    public List<Cow> findByCouponId(int couponId){
-        String jpql = "select c from Cow where Cow.couponId = couponId";
+    //이표번호 조회시 getResultList()사용할지, getSingleResult사용할지.. 골라야함
+    public Cow findByCouponId(int couponId){
+        String jpql = "select c from Cow c where c.couponId = :couponId";
         return em.createQuery(jpql, Cow.class).setParameter("couponId", couponId)
-                .getResultList();
+                .getSingleResult();
     }
 
-    //수정
-
     //삭제
+
+//    //이표번호 통해 찾고 수정, 근데 이게 리포지에 필요할까?
+//    public long updateCow(int couponId) {
+//        String jpql = "select c from Cow c where c.couponId = :couponId";
+//        Cow cowFoundByCouponId = em.createQuery(jpql, Cow.class).setParameter("couponId", couponId).getSingleResult();
+//        return cowFoundByCouponId.getId();
+//    }
+
+
 
 }
