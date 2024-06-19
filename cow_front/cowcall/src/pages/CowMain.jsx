@@ -26,6 +26,8 @@ function CowMain() {
         <div className="cowItemContainer">
           <div onClick={CowDetail}>
             <CowItem />
+
+            {/* 여기서 cowItem을 반복해야한다. */}
           </div>
           <CowItem />
           <CowItem />
