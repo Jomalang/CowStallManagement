@@ -1,0 +1,8 @@
+.HeaderContainer {
+  display: flex;
+  justify-content: end;
+}
+
+.HeaderContainer > button {
+  margin-left: 10px;
+}

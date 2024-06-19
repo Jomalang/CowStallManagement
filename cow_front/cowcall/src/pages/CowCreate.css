@@ -1,0 +1,11 @@
+.craeteButton {
+  display: flex;
+  justify-content: end;
+}
+
+form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
