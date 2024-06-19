@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("")
+      .get("localhost:8080/test")
       .then((res) => {
         setCows(res.data);
       })
