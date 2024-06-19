@@ -2,6 +2,7 @@ package miniPrj.CowStallManagement.repositroy;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import miniPrj.CowStallManagement.Form.CowForm;
 import miniPrj.CowStallManagement.domain.Cow;
 import org.springframework.stereotype.Repository;
 
@@ -36,14 +37,22 @@ public class CowRepository {
     }
 
     //삭제
+    //이게 최선일까?
+    public void deleteCow(long Id){
+        Cow cowFoundById = em.find(Cow.class, Id);
+        em.remove(cowFoundById);
+    }
 
-//    //이표번호 통해 찾고 수정, 근데 이게 리포지에 필요할까?
-//    public long updateCow(int couponId) {
-//        String jpql = "select c from Cow c where c.couponId = :couponId";
-//        Cow cowFoundByCouponId = em.createQuery(jpql, Cow.class).setParameter("couponId", couponId).getSingleResult();
-//        return cowFoundByCouponId.getId();
-//    }
-
-
+//  이표번호 통해 찾고 수정, 근데 이게 리포지에 필요할까?
+    public Cow updateCow(Cow cow, CowForm cowForm) {
+        //Id 제외 변경감지 시킨다.
+        cow.setCouponId(cowForm.getCouponId());
+        cow.setScheduledChildbirthDate(cowForm.getScheduledChildbirthDate());
+        cow.setCowBirthDate(cowForm.getCowBirthDate());
+        cow.setLocation(cowForm.getLocation());
+        cow.setCalf(cowForm.getCalf());
+        em.persist(cow);
+        return cow;
+    }
 
 }

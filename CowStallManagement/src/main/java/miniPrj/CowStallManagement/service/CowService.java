@@ -1,12 +1,13 @@
 package miniPrj.CowStallManagement.service;
 
 import lombok.RequiredArgsConstructor;
+import miniPrj.CowStallManagement.Form.CowForm;
 import miniPrj.CowStallManagement.domain.Cow;
 import miniPrj.CowStallManagement.repositroy.CowRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
@@ -24,7 +25,6 @@ public class CowService {
         return cow.getId(); //getter로 접근하는게 좋다.
     }
 
-
     //검증
     //소 전체 조회
     @Transactional(readOnly = true) //성능 최적화
@@ -34,7 +34,7 @@ public class CowService {
 
     //소 ID단건 조회
     @Transactional(readOnly = true)
-    public Cow findOne(Long cowId){
+    public Cow findById(Long cowId){
         return cowRepository.findOne(cowId);
     }
 
@@ -45,23 +45,16 @@ public class CowService {
         return cowRepository.findByCouponId(couponId);
     }
 
-    //소 삭제
-    public void delete(Cow cow){
+    //소 이표번호 통해 삭제
+    public void deleteCow(Cow cow){
+        cowRepository.deleteCow(cow.getId());
     }
 
     //소 이표번호 통해 찾고 수정
-    //form작성
-    public void ChangeCowForm(int couponId){
-        //이표번호 통한 조회
-        Cow cowByCoupon = cowRepository.findByCouponId(couponId);
-        Cow newCow = new Cow();
-        newCow.setId(cowByCoupon.getId());
-        newCow.setCouponId(cowByCoupon.getCouponId());
-        newCow.setCowBirthDate(cowByCoupon.getCowBirthDate());
-        newCow.setFertileDate(cowByCoupon.getFertileDate());
-        newCow.setScheduledChildbirthDate(cowByCoupon.getScheduledChildbirthDate());
-        newCow.setLocation(cowByCoupon.getLocation());
+    public Cow ChangeCow(int couponId, CowForm cowForm){
+        Cow cowByCouponId = findByCouponId(couponId);
+        Cow cow = cowRepository.updateCow(cowByCouponId, cowForm);
 
-
+        return cow;
     }
 }
