@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="StallManagement">
+        <properties>
+            <!-- 필수 속성, DB접근정보 -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/CowStallManagement"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- java Transaction api를 javax에서 찾기 때문에, 따로 jakarata에서 찾도록 아래처럼 설정해줘야 한다.-->
+            <property name="hibernate.trasaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JakartaJtaPlatform" />
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true"/> <!--db로 나가는 쿼리 로그로 보기-->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!--개발단계에서만 create로 설정-->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+    </persistence-unit>
+</persistence>
