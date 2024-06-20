@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="967e2f62-f35b-4def-964a-e8ebe4fb7e34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CowStallManagement/src/test/java/miniPrj/CowStallManagement/CowServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CowStallManagement/src/main/java/miniPrj/CowStallManagement/service/CowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CowStallManagement/src/main/java/miniPrj/CowStallManagement/service/CowService.java" afterDir="false" />
-    </list>
+    <list default="true" id="967e2f62-f35b-4def-964a-e8ebe4fb7e34" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +37,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "topic",
+    "git-widget-placeholder": "dev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/WorkSpace_miniPrj/CowStallManagement/CowStallManagement",
