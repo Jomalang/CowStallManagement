@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import miniPrj.CowStallManagement.domain.Calf;
+import miniPrj.CowStallManagement.domain.Memo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.FetchType.LAZY;
@@ -27,7 +29,9 @@ public class CowForm {
 
     private String location; //위치
 
-    private Calf calf; // 기본값
+    private Calf calf; //기본값
 
     //일대다 주인(메모)
+    private List<Memo> memos;
+
 }

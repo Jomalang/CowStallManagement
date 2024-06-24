@@ -1,14 +1,14 @@
 package miniPrj.CowStallManagement.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+
+import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Getter @Setter
@@ -20,5 +20,10 @@ public class Memo {
     private long id;
     private String content;
     private LocalDate createDate;
+
+    //다대일 주인(다)
+    @ManyToOne(fetch = LAZY, cascade = ALL)
+    @JoinColumn(name = "COW_ID")
+    private Cow cow;
 
 }

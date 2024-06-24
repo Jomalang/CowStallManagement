@@ -50,11 +50,11 @@ public class CowService {
         cowRepository.deleteCow(cow.getId());
     }
 
-    //소 이표번호 통해 찾고 수정
-    public Cow ChangeCow(int couponId, CowForm cowForm){
-        Cow cowByCouponId = findByCouponId(couponId);
-        Cow cow = cowRepository.updateCow(cowByCouponId, cowForm);
+    //소 수정
+    public Cow ChangeCow(long id, CowForm cowForm){
+        Cow cowFindById = cowRepository.findOne(id);
+        cowRepository.updateCow(cowFindById, cowForm);
 
-        return cow;
+        return cowFindById;
     }
 }

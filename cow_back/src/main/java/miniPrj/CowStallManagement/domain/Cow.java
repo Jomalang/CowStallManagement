@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.CascadeType.*;
 import static jakarta.persistence.FetchType.*;
@@ -56,8 +58,7 @@ public class Cow {
     @JoinColumn(name ="CALF_ID", nullable = true)
     private Calf calf; // 기본값
 
-    //일대다 주인(메모)
-
-
-
+    //일대다(메모)
+    @OneToMany(mappedBy = "cow")
+    private List<Memo> memos = new ArrayList<>();
 }
